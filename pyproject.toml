@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "agent-narrator"
 version = "0.2.0"
-description = "Hear your Claude Code agent work - terminal-native, cross-platform, BYO-key narration over TTS."
+description = "Hear your coding agents work - terminal-native, cross-platform, BYO-key narration over TTS."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -27,7 +27,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/anmolsaksena/agent-narrator"
+Repository = "https://github.com/AnSa30-06/agent-narrator-for-windows"
 
 [project.scripts]
 agent-narrator = "agent_narrator.cli:main"
