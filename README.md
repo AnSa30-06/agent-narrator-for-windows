@@ -130,14 +130,3 @@ A full session narrates for well under $0.05 with gpt-4o-mini.
 - One chatty agent can't drown out a quiet one: stale-line dropping is
   per-station, and errors from any station jump the whole queue.
 - `Ctrl-C` signs off cleanly.
-
-## Roadmap
-
-- OpenCode transcript support (one more class in `sources.py`)
-- A distinct chime before blocker/attention lines
-- Per-station voices, and a `--focus <station>` solo mode
-- Piper as a higher-quality offline voice
-
-## License
-
-MIT © Anmol Saksena
