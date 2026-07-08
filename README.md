@@ -1,9 +1,9 @@
-# agent-narrator
+# agent-narrator-for-windows
 
-**Hear your coding agents work.** A terminal-native CLI that tails every live
+**Basically Hear your coding agents work.** It's a terminal-native CLI that tails every live
 agent session on your machine (Claude Code and Codex), distills each step into
 one calm spoken line with a bring-your-own-key LLM, and reads it aloud. Errors
-and "the agent needs you" moments always speak first, and every agent announces
+and "the agent needs you" moments always speak first(so your work never stops), and every agent announces
 when it goes idle or gets back to work.
 
 Run a stack of agents without staring at a stack of terminals.
@@ -40,16 +40,11 @@ and you can read every line of it.
     per station batch   errors jump everyone, station names prefix the lines
 ```
 
-- **Local-first, BYO-key.** Your transcripts never leave your machine except as
-  the short event batch sent to *your* LLM provider. No hosted proxy, no account.
 - **Never falls behind.** TTS runs on a worker thread; stale lines are dropped so
   you always hear the *newest* state, and errors/attention jump the queue.
 - **Great voice for free.** The default voice is a Microsoft Edge neural voice
-  (`edge-tts`) — natural-sounding, no key. A paid `OPENAI_API_KEY` upgrades to
+  (`edge-tts`) — surprisingly natural-sounding, no key. A paid `OPENAI_API_KEY` upgrades to
   OpenAI TTS; `--local` drops to a fully offline voice.
-- **Degrades gracefully.** No API key? Template narration (`--no-llm`). API
-  down? Falls back to templates. Online voice fails? Falls back to the offline
-  voice. The narrator never dies mid-session.
 
 ## Install
 
@@ -80,7 +75,7 @@ No key? It works out of the box:
 agent-narrator --no-llm --local
 ```
 
-Replay a finished session as a spoken story (the quickest way to hear it):
+Replay a finished session as a spoken story (the quickest way to hear it, sort of like a podcast):
 
 ```bash
 agent-narrator --replay --session ~/.claude/projects/<project>/<session>.jsonl
@@ -119,7 +114,7 @@ A full session narrates for well under $0.05 with gpt-4o-mini.
 ## Behavior details
 
 - Start a new agent mid-broadcast? Its station joins live ("New station:
-  devour-io") at the current moment, never replaying old history. Stations that
+  my pycharm projects") at the current moment, never replaying old history. Stations that
   go quiet sign off and free their slot for a busier one.
 - Each station announces "has gone idle" / "is back at work", so you always know
   which agents are actually doing something.
@@ -128,5 +123,5 @@ A full session narrates for well under $0.05 with gpt-4o-mini.
 - Attention detection: questions and approval/permission/blocked phrasing are
   spoken immediately, ahead of everything else.
 - One chatty agent can't drown out a quiet one: stale-line dropping is
-  per-station, and errors from any station jump the whole queue.
+  per-station, and errors from any station will jump the whole queue. So priority does exist.
 - `Ctrl-C` signs off cleanly.
